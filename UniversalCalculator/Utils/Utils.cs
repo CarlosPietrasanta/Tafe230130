@@ -23,9 +23,9 @@ namespace Calculator.Utils
 
 		public static void handleClick(string number)
 		{
-			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
-			TextBlock secondaryDisplay = MainPage.mainPage.secondaryDisplay;
-			TextBlock errorDisplay = MainPage.mainPage.errorDisplay;
+			TextBlock primaryDisplay = MathsCalculator.mainPage.primaryDisplay;
+			TextBlock secondaryDisplay = MathsCalculator.mainPage.secondaryDisplay;
+			TextBlock errorDisplay = MathsCalculator.mainPage.errorDisplay;
 
 			// the number cannot have more than 6 digits
 			if (primaryDisplay.Text.Length < 6)
@@ -53,8 +53,8 @@ namespace Calculator.Utils
 		// triggered when an operation such as +, -, * or / is pressed
 		public static void handleOperationClick(string operation)
 		{
-			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
-			TextBlock secondaryDisplay = MainPage.mainPage.secondaryDisplay;
+			TextBlock primaryDisplay = MathsCalculator.mainPage.primaryDisplay;
+			TextBlock secondaryDisplay = MathsCalculator.mainPage.secondaryDisplay;
 
 			if (primaryDisplay.Text.Length + secondaryDisplay.Text.Length < 50)
 			{
@@ -77,16 +77,16 @@ namespace Calculator.Utils
 		// Triggered when the clear button is pressed
 		public static void handleClearButtonClick()
 		{
-			MainPage.mainPage.primaryDisplay.Text = "";
-			MainPage.mainPage.secondaryDisplay.Text = "";
+			MathsCalculator.mainPage.primaryDisplay.Text = "";
+			MathsCalculator.mainPage.secondaryDisplay.Text = "";
 		}
 
 		// Triggered when the equal button is pressed
 		public static void handleEqualButtonClick()
 		{
-			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
-			TextBlock secondaryDisplay = MainPage.mainPage.secondaryDisplay;
-			TextBlock errorDisplay = MainPage.mainPage.errorDisplay;
+			TextBlock primaryDisplay = MathsCalculator.mainPage.primaryDisplay;
+			TextBlock secondaryDisplay = MathsCalculator.mainPage.secondaryDisplay;
+			TextBlock errorDisplay = MathsCalculator.mainPage.errorDisplay;
 
 			try
 			{
@@ -105,7 +105,7 @@ namespace Calculator.Utils
 
 		public static void handleBackspace()
 		{
-			TextBlock primaryDisplay = MainPage.mainPage.primaryDisplay;
+			TextBlock primaryDisplay = MathsCalculator.mainPage.primaryDisplay;
 
 			if (primaryDisplay.Text.Length > 0)
 				primaryDisplay.Text = primaryDisplay.Text.Substring(0, primaryDisplay.Text.Length - 1);

@@ -7,13 +7,13 @@ using Windows.UI.Xaml.Controls;
 
 namespace Calculator
 {
-	public sealed partial class MainPage : Page
+	public sealed partial class MathsCalculator : Page
 	{
 		// default var
-		public static MainPage mainPage { get; set; }
+		public static MathsCalculator mainPage { get; set; }
 
 		// default functions
-		public MainPage()
+		public MathsCalculator()
 		{
 			InitializeComponent();
 
@@ -89,6 +89,11 @@ namespace Calculator
 			{
 				Utils.Utils.handleBackspace();
 			}
+		}
+
+		private void ReturnToMainMenuButtonClick(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(MainMenu));
 		}
 	}
 }
