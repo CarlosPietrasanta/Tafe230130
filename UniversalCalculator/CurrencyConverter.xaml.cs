@@ -36,7 +36,14 @@ namespace Calculator
 
 		private async void Convert_Click(object sender, RoutedEventArgs e)
 		{
+			// Initialize variables
+			string convertFrom;
+			string convertTo;
 			double originalAmount;
+			double conversionRate = 0;
+			double backwardsConversionRate = 0;
+
+			// Error handling for amount to be converted
 			try
 			{
 				originalAmount = double.Parse(originalAmountTextBox.Text);
@@ -58,9 +65,52 @@ namespace Calculator
 				return;
 			}
 
-			double conversionRate = 0;
-			double backwardsConversionRate = 0;
+			// Error handling for original currency
+			if (ConvertFrom.SelectedItem != null)
+			{
+				convertFrom = ConvertFrom.SelectedItem.ToString();
+			}
+			else
+			{
+				var dialogMessage = new MessageDialog("Error! Please select a valid currency to convert from.");
+				await dialogMessage.ShowAsync();
+				ConvertFrom.IsDropDownOpen = true;
+				return;
+			}
 
+			// Error handling for currency to convert to
+			if (ConvertTo.SelectedItem != null)
+			{
+				convertTo = ConvertTo.SelectedItem.ToString();
+			}
+			else
+			{
+				var dialogMessage = new MessageDialog("Error! Please select a valid currency to convert to.");
+				await dialogMessage.ShowAsync();
+				ConvertTo.IsDropDownOpen = true;
+				return;
+			}
+
+			// Select conversion rates from the selected currencies
+			selectConversionRates(convertFrom, convertTo, ref conversionRate, ref backwardsConversionRate);
+
+			// Calculate output
+			double convertedAmount = originalAmount * conversionRate;
+
+			// Print information to screen based on selected currencies and calculated output
+			printInformationToScreen(convertFrom, convertTo, originalAmount, conversionRate, backwardsConversionRate, convertedAmount);
+		}
+
+		private void printInformationToScreen(string convertFrom, string convertTo, double originalAmount, double conversionRate, double backwardsConversionRate, double convertedAmount)
+		{
+			OriginalAmountAndCurrency.Text = "$" + originalAmount.ToString() + " " + convertFrom + "s = ";
+			ConvertedAmount.Text = "$" + convertedAmount.ToString() + " " + convertTo + "s";
+			ConversionRate.Text = "1 " + convertFrom + " = " + conversionRate + " " + convertTo + "s";
+			BackwardsConversionRate.Text = "1 " + convertTo + " = " + backwardsConversionRate + " " + convertFrom + "s";
+		}
+
+		private static void selectConversionRates(string convertFrom, string convertTo, ref double conversionRate, ref double backwardsConversionRate)
+		{
 			double USDToEUR = 0.85189982;
 			double USDToGBP = 0.72872436;
 			double USDToINR = 74.257327;
@@ -76,33 +126,6 @@ namespace Calculator
 			double INRToUSD = 0.011492628;
 			double INRToEUR = 0.013492774;
 			double INRToGBP = 0.0098339397;
-
-			string convertFrom;
-			string convertTo;
-
-			if (ConvertFrom.SelectedItem != null)
-			{
-				convertFrom = ConvertFrom.SelectedItem.ToString();
-			}
-			else
-			{
-				var dialogMessage = new MessageDialog("Error! Please select a valid currency to convert from.");
-				await dialogMessage.ShowAsync();
-				ConvertFrom.IsDropDownOpen = true;
-				return;
-			}
-			if (ConvertTo.SelectedItem != null)
-			{
-				convertTo = ConvertTo.SelectedItem.ToString();
-			}
-			else
-			{
-				var dialogMessage = new MessageDialog("Error! Please select a valid currency to convert to.");
-				await dialogMessage.ShowAsync();
-				ConvertTo.IsDropDownOpen = true;
-				return;
-			}
-			
 
 			// If the same currency is selected, conversion rate is 1.
 			if (convertFrom == convertTo)
@@ -164,7 +187,7 @@ namespace Calculator
 						break;
 				}
 			}
-			else // ConvertFrom is INR - Indian Rupee
+			else // Last scenario is that convertFrom is INR - Indian Rupee
 			{
 				switch (convertTo)
 				{
@@ -182,13 +205,6 @@ namespace Calculator
 						break;
 				}
 			}
-
-			double convertedAmount = originalAmount * conversionRate;
-
-			OriginalAmountAndCurrency.Text = "$" + originalAmount.ToString() + " " + convertFrom + "s = ";
-			ConvertedAmount.Text = "$" + convertedAmount.ToString() + " " + convertTo + "s";
-			ConversionRate.Text = "1 " + convertFrom + " = " + conversionRate + " " + convertTo + "s";
-			BackwardsConversionRate.Text = "1 " + convertTo + " = " + backwardsConversionRate + " " + convertFrom + "s";
 		}
 	}
 }
