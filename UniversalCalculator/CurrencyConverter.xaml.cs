@@ -40,8 +40,10 @@ namespace Calculator
 			string convertFrom;
 			string convertTo;
 			double originalAmount;
+			double convertedAmount;
 			double conversionRate = 0;
 			double backwardsConversionRate = 0;
+
 
 			// Error handling for amount to be converted
 			try
@@ -92,24 +94,24 @@ namespace Calculator
 			}
 
 			// Select conversion rates from the selected currencies
-			selectConversionRates(convertFrom, convertTo, ref conversionRate, ref backwardsConversionRate);
+			determineConversionRates(convertFrom, convertTo, ref conversionRate, ref backwardsConversionRate);
 
 			// Calculate output
-			double convertedAmount = originalAmount * conversionRate;
+			convertedAmount = convertCurrency(originalAmount, conversionRate);
 
 			// Print information to screen based on selected currencies and calculated output
-			printInformationToScreen(convertFrom, convertTo, originalAmount, conversionRate, backwardsConversionRate, convertedAmount);
-		}
-
-		private void printInformationToScreen(string convertFrom, string convertTo, double originalAmount, double conversionRate, double backwardsConversionRate, double convertedAmount)
-		{
 			OriginalAmountAndCurrency.Text = "$" + originalAmount.ToString() + " " + convertFrom + "s = ";
 			ConvertedAmount.Text = "$" + convertedAmount.ToString() + " " + convertTo + "s";
 			ConversionRate.Text = "1 " + convertFrom + " = " + conversionRate + " " + convertTo + "s";
 			BackwardsConversionRate.Text = "1 " + convertTo + " = " + backwardsConversionRate + " " + convertFrom + "s";
 		}
 
-		private static void selectConversionRates(string convertFrom, string convertTo, ref double conversionRate, ref double backwardsConversionRate)
+		private static double convertCurrency(double originalAmount, double conversionRate)
+		{
+			return originalAmount * conversionRate;
+		}
+
+		private static void determineConversionRates(string convertFrom, string convertTo, ref double conversionRate, ref double backwardsConversionRate)
 		{
 			double USDToEUR = 0.85189982;
 			double USDToGBP = 0.72872436;
