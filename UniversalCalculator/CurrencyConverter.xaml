@@ -6,9 +6,31 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+	<Page.Resources>
+		<Style TargetType="TextBox">
+			<Setter Property="Background" Value="LightCyan" />
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="MinWidth" Value="200" />
+			<Setter Property="BorderBrush" Value="DarkBlue"/>
+		</Style>
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="MinWidth" Value="100" />
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="Background" Value="LightCyan" />
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Padding" Value="10" />
+			<Setter Property="Margin" Value="20" />
+			<Setter Property="MinWidth" Value="120" />
+			<Setter Property="BorderBrush" Value="Black"/>
+		</Style>
+	</Page.Resources>
 
-    <Grid>
+	<Grid Background="DarkCyan">
 		<StackPanel HorizontalAlignment="Center" Margin="30">
 			
 			<TextBlock FontSize = "40" HorizontalAlignment="Center">Currency Conversion Calculator</TextBlock>

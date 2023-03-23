@@ -6,10 +6,31 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+	<Page.Resources>
+		<Style TargetType="TextBox">
+			<Setter Property="Background" Value="LightCyan" />
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="MinWidth" Value="200" />
+			<Setter Property="BorderBrush" Value="DarkBlue"/>
+		</Style>
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="MinWidth" Value="100" />
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="Background" Value="LightCyan" />
+			<Setter Property="Foreground" Value="DarkBlue" />
+			<Setter Property="Padding" Value="10" />
+			<Setter Property="Margin" Value="20" />
+			<Setter Property="MinWidth" Value="120" />
+			<Setter Property="BorderBrush" Value="Black"/>
+		</Style>
+	</Page.Resources>
 
-    <Grid>
-		
+	<Grid Background="DarkCyan">
 		<StackPanel HorizontalAlignment="Center" Margin="10">
 			<TextBlock Text="Universal Calculator" Margin="30" FontSize="60" HorizontalAlignment="Center"></TextBlock>
 			<Button x:Name="MathsCalculatorButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MathsCalculatorButton_Click">Maths Calculator</Button>
@@ -22,6 +43,5 @@
 		<StackPanel>
 			<Image Source="Assets/abacus.png" Width="200" HorizontalAlignment="Right" Margin="30"></Image>
 		</StackPanel>
-
 	</Grid>
 </Page>
