@@ -43,7 +43,7 @@ namespace Calculator
 
 		private void TripCalculatorButton_Click(object sender, RoutedEventArgs e)
 		{
-
+			this.Frame.Navigate(typeof(TripCalculator));
 		}
 
 		private void ExitButton_Click(object sender, RoutedEventArgs e)
