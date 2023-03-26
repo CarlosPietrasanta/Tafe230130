@@ -65,9 +65,9 @@
                 <TextBox x:Name="mRepaymentTextBox" PlaceholderText="4,490.45" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Width="306">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="calculateButton" Content="Calculate" Click="CalculateButton_Click"  />
-                <Button x:Name="exitButton" Content="Exit" Click="exitButton_Click" />
+                <Button x:Name="exitButton" Content="Return to Main Menu" Click="exitButton_Click" />
             </StackPanel>
 
         </StackPanel>

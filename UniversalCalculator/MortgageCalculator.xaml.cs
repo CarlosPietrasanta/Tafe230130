@@ -120,8 +120,7 @@ namespace Calculator
 		// exit button to return to main page on exit 
 		private void exitButton_Click(object sender, RoutedEventArgs e)
 		{
-			Application.Current.Exit();
-			//this.Frame.Navigate(typeof(MainMenu)); ********update************
+			this.Frame.Navigate(typeof(MainMenu));
 		}
 	}
 }
