@@ -47,6 +47,13 @@ namespace Calculator
 			this.Frame.Navigate(typeof(TripCalculator));
 		}
 
+		private async void MMGCalculatorButton_Click(object sender, RoutedEventArgs e)
+		{
+			MessageDialog dialogMessage = new MessageDialog("MMG Calculator C# code will be developed later");
+			await dialogMessage.ShowAsync();
+			return;
+		}
+
 		private void ExitButton_Click(object sender, RoutedEventArgs e)
 		{
 			Application.Current.Exit();
