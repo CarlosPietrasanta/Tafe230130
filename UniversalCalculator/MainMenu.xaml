@@ -7,42 +7,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-	<Page.Resources>
-		<Style TargetType="TextBox">
-			<Setter Property="Background" Value="LightCyan" />
-			<Setter Property="Foreground" Value="DarkBlue" />
-			<Setter Property="Margin" Value="10" />
-			<Setter Property="MinWidth" Value="200" />
-			<Setter Property="BorderBrush" Value="DarkBlue"/>
-		</Style>
-		<Style TargetType="TextBlock">
-			<Setter Property="Foreground" Value="DarkBlue" />
-			<Setter Property="Margin" Value="10" />
-			<Setter Property="MinWidth" Value="100" />
-		</Style>
-		<Style TargetType="Button">
-			<Setter Property="Background" Value="LightCyan" />
-			<Setter Property="Foreground" Value="DarkBlue" />
-			<Setter Property="Padding" Value="10" />
-			<Setter Property="Margin" Value="20" />
-			<Setter Property="MinWidth" Value="120" />
-			<Setter Property="BorderBrush" Value="Black"/>
-		</Style>
-	</Page.Resources>
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="LightCyan" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="MinWidth" Value="200" />
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="MinWidth" Value="100" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightCyan" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Page.Resources>
 
-	<Grid Background="DarkCyan">
-		<StackPanel HorizontalAlignment="Center" Margin="10">
-			<TextBlock Text="Universal Calculator" Margin="30" FontSize="60" HorizontalAlignment="Center"></TextBlock>
-			<Button x:Name="MathsCalculatorButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MathsCalculatorButton_Click">Maths Calculator</Button>
-			<Button x:Name="MorthageCalculatorButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MortgageCalculatorButton_Click">Mortgage Calculator</Button>
-			<Button x:Name="CurrencyConverterButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="CurrencyConverterButton_Click">Currency Converter</Button>
-			<Button x:Name="TripCalculatorButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="TripCalculatorButton_Click">Trip Calculator</Button>
-			<Button x:Name="BmiCalculatorButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="BmiCalculatorButton_Click">Bmi Calculator</Button>
-			<Button x:Name="ExitButton" Margin="20" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="ExitButton_Click">Exit</Button>
-		</StackPanel>
+    <Grid Background="DarkCyan">
+        <StackPanel HorizontalAlignment="Center" Margin="0,10,0,216" Width="665">
+            <TextBlock Text="Universal Calculator" Margin="10" FontSize="60" HorizontalAlignment="Center"></TextBlock>
+            <Button x:Name="MathsCalculatorButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MathsCalculatorButton_Click">Maths Calculator</Button>
+            <Button x:Name="MorthageCalculatorButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MortgageCalculatorButton_Click">Mortgage Calculator</Button>
+            <Button x:Name="CurrencyConverterButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="CurrencyConverterButton_Click">Currency Converter</Button>
+            <Button x:Name="TripCalculatorButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="TripCalculatorButton_Click">Trip Calculator</Button>
+            <Button x:Name="BmiCalculatorButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="BmiCalculatorButton_Click">Bmi Calculator</Button>
+            <Button x:Name="MMGCalculatorButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="MMGCalculatorButton_Click">MMGCalculator</Button>
+            <Button x:Name="ExitButton" Margin="10" HorizontalAlignment="Center" Width="400" Height="70" FontSize="30" Click="ExitButton_Click">Exit</Button>
 
-		<StackPanel>
-			<Image Source="Assets/abacus.png" Width="200" HorizontalAlignment="Right" Margin="30"></Image>
-		</StackPanel>
-	</Grid>
+        </StackPanel>
+
+        <StackPanel>
+            <Image Source="Assets/abacus.png" Width="200" HorizontalAlignment="Right" Margin="30"></Image>
+        </StackPanel>
+    </Grid>
 </Page>
